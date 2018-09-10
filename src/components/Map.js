@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import GoogleMapReact from 'google-map-react';
 import svgMarker from '../images/svgMarker.svg';
 import "../styles.css";
@@ -22,10 +23,11 @@ class MapContainer extends Component {
           //bootstrapURLKeys={{ key: /* YOUR KEY HERE */ }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
+          center={this.props.location}
         >
           <Map
-            lat= {10.2433023}
-            lng= {123.78899219999994}
+            lat= {this.props.location.lat}
+            lng= {this.props.location.lng}
           />
         </GoogleMapReact>
       </div>
@@ -33,4 +35,9 @@ class MapContainer extends Component {
   }
 }
 
-export default MapContainer;
+const mapStateToProps = (state) => {
+    return {location: state.location.location};
+}
+
+
+export default connect(mapStateToProps)(MapContainer)

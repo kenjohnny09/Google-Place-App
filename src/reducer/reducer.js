@@ -4,16 +4,18 @@ const initialState = {
     location: {
       lat: 10.315,
       lng: 123.8854
-    }
+    },
+    locationList: []
 };
 
 const Location = (state = initialState, action) => {
     switch(action.type) {
         case SEARCH_LOCATION :
             return Object.assign({}, state, {
-                location: [...state.location, action.location]
+                locationList: [...state.locationList, action.location],
+                location: action.location
             })
-        
+
         default:
             return state;
     }
