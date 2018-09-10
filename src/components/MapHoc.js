@@ -19,8 +19,12 @@ const MapHoc = compose(
     <div className="container">
         <div className="container-item">
             <SearchInput/>
-
-            <SearchList />
+            
+            <table>
+                <tbody>
+                    <SearchList />
+                </tbody>
+            </table>
 
         </div>
         <MapContainer />

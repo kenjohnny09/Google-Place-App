@@ -18,4 +18,5 @@ const mapStateToProps = (state) => {
     return {location: state.location};
 }
 
+
 export default connect(mapStateToProps)(SearchList)

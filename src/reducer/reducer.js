@@ -7,7 +7,7 @@ const initialState = {
     }
 };
 
-const rootReducer = (state = initialState, action) => {
+const Location = (state = initialState, action) => {
     switch(action.type) {
         case SEARCH_LOCATION :
             return Object.assign({}, state, {
@@ -19,4 +19,4 @@ const rootReducer = (state = initialState, action) => {
     }
 };
 
-export default rootReducer;
+export default Location;

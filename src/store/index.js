@@ -1,6 +1,16 @@
-import { createStore } from "redux";
-import rootReducer from "../reducer/reducer";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import Location from "../reducer/reducer";
+import { createLogger } from 'redux-logger'
 
-const store = createStore(rootReducer);
+const appReducer = combineReducers({
+    location: Location
+});
 
-export default store;
+export const rootReducer = (state, action) => {
+    return appReducer(state, action);
+};
+
+const logger = createLogger({collapsed: true})
+const middlewares = [logger]
+
+export default createStore(rootReducer, window.devToolsExtension && window.devToolsExtension(), applyMiddleware(...middlewares));
