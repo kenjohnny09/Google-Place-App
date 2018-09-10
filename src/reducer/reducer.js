@@ -12,7 +12,7 @@ const Location = (state = initialState, action) => {
     switch(action.type) {
         case SEARCH_LOCATION :
             return Object.assign({}, state, {
-                locationList: [...state.locationList, action.location],
+                locationList: [...state.locationList,{address: action.address} ],
                 location: action.location
             })
 

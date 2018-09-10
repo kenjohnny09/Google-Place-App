@@ -12,8 +12,7 @@ class SearchList extends React.Component{
             this.props.locationList.map((o,i) =>{
                 return (
                     <tr key={i}>
-                        <td>{o.lat}</td>
-                        <td>{o.lng}</td>
+                        <td>{o.address}</td>
                     </tr>
                 )
             })
