@@ -1,0 +1,13 @@
+.container{
+    margin: 20px;
+    display: flex;
+}
+
+.container-item{
+    width: 600px;
+}
+
+.marker{
+    width:25px;
+    height:25px;
+}
