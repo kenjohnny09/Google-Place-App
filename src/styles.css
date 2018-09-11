@@ -25,7 +25,7 @@
 
 /*Search bar CSS*/
 .search-bar-container {
-    width: 90%;
+    width: 96%;
     max-width: 500px;
   }
 
@@ -68,6 +68,7 @@
   outline: none;
   font-weight: 600;
   color: #999;
+  cursor: pointer;
 }
 
 .dropdown-footer {

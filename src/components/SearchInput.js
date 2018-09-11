@@ -14,7 +14,8 @@ class LocationSearchInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = { address: '',
-                    location: '' };
+                    location: '',
+                    isLoading: false };
   }
 
   handleChange = address => {
@@ -90,6 +91,7 @@ class LocationSearchInput extends React.Component {
                         <img
                           src={require('../images/powered_by_google_default.png')}
                           className="dropdown-footer-image"
+                          alt=""
                         />
                       </div>
                     </div>

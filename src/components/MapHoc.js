@@ -1,14 +1,13 @@
 import React from 'react';
 import { compose, withProps } from "recompose";
 import "../styles.css";
-import { Table, TableHead, TableRow, TableBody, TableCell} from '@material-ui/core';
 
 import {
     withScriptjs,
   } from "react-google-maps";
 import SearchInput from "./SearchInput";
 import MapContainer from './Map';
-import SearchList from './SearchList';
+import HistoryTable from './HistoryTable';
 
 const MapHoc = compose(
     withProps({
@@ -23,16 +22,7 @@ const MapHoc = compose(
         </div>
         <MapContainer />
         <div className="container-item-2">
-            <Table className="table-places">
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Places Searched</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    <SearchList />
-                </TableBody>
-            </Table>
+            <HistoryTable />
         </div>
     </div>
   )
