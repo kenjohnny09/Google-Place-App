@@ -36,7 +36,6 @@ class MapContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state.location.location)
     return {location: state.location.location};
 }
 

@@ -6,7 +6,9 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
+import "../styles.css";
 import { TextField } from "@material-ui/core";
+import { classnames } from '../helpers';
 
 class LocationSearchInput extends React.Component {
   constructor(props) {
@@ -28,6 +30,13 @@ class LocationSearchInput extends React.Component {
       .catch(error => console.error('Error', error));
   };
 
+  handleCloseClick = () => {
+    this.setState({
+      address: '',
+      location: null
+    });
+  };
+
   render() {
     return (
       <PlacesAutocomplete
@@ -36,36 +45,57 @@ class LocationSearchInput extends React.Component {
         onSelect={this.handleSelect}
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div>
-            <TextField
-              {...getInputProps({
-                placeholder: 'Search Places ...',
-                className: 'location-search-input',
-              })}
-              label="Search Place"
-            />
-            <div className="autocomplete-dropdown-container">
-              {loading && <div>Loading...</div>}
-              {suggestions.map(suggestion => {
-                const className = suggestion.active
-                  ? 'suggestion-item--active'
-                  : 'suggestion-item';
-                // inline style for demonstration purpose
-                const style = suggestion.active
-                  ? { backgroundColor: '#fafafa', cursor: 'pointer' }
-                  : { backgroundColor: '#ffffff', cursor: 'pointer' };
-                return (
-                  <div
-                    {...getSuggestionItemProps(suggestion, {
-                      className,
-                      style,
+          <div className="search-bar-container">
+              <div className="search-input-container">
+                <TextField
+                    {...getInputProps({
+                        placeholder: 'Search Places ...',
+                        className: 'location-search-input',
                     })}
-                  >
-                    <span>{suggestion.description}</span>
+                    label="Search Place"
+                    id="multiline-flexible"
+                    multiline
+                />
+                {this.state.address.length > 0 && (
+                    <button
+                      className="clear-button"
+                      onClick={this.handleCloseClick}
+                    >
+                      x
+                    </button>
+                  )}
+              </div>
+              {suggestions.length > 0 && (
+                  <div className="autocomplete-container">
+                    {suggestions.map(suggestion => {
+                      const className = classnames('suggestion-item', {
+                        'suggestion-item--active': suggestion.active,
+                      });
+
+                      return (
+                        <div
+                          {...getSuggestionItemProps(suggestion, { className })}
+                        >
+                          <strong>
+                            {suggestion.formattedSuggestion.mainText}
+                          </strong>{' '}
+                          <small>
+                            {suggestion.formattedSuggestion.secondaryText}
+                          </small>
+                        </div>
+                      );
+                    })}
+                    <div className="dropdown-footer">
+                      <div>
+                        <img
+                          src={require('../images/powered_by_google_default.png')}
+                          className="dropdown-footer-image"
+                        />
+                      </div>
+                    </div>
                   </div>
-                );
-              })}
-            </div>
+                )}      
+            
           </div>
         )}
       </PlacesAutocomplete>

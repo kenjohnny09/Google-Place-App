@@ -1,6 +1,7 @@
 import React from 'react';
 import { compose, withProps } from "recompose";
 import "../styles.css";
+import { Table, TableHead, TableRow, TableBody, TableCell} from '@material-ui/core';
 
 import {
     withScriptjs,
@@ -17,17 +18,22 @@ const MapHoc = compose(
     withScriptjs
   )( props =>
     <div className="container">
-        <div className="container-item">
+        <div className="container-item-1">
             <SearchInput/>
-            
-            <table>
-                <tbody>
-                    <SearchList />
-                </tbody>
-            </table>
-
         </div>
         <MapContainer />
+        <div className="container-item-2">
+            <Table className="table-places">
+                <TableHead>
+                    <TableRow>
+                        <TableCell>Places Searched</TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    <SearchList />
+                </TableBody>
+            </Table>
+        </div>
     </div>
   )
   

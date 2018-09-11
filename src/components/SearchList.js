@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { TableCell, TableRow} from '@material-ui/core';
 
 class SearchList extends React.Component{
 
@@ -11,9 +12,9 @@ class SearchList extends React.Component{
         return (
             this.props.locationList.map((o,i) =>{
                 return (
-                    <tr key={i}>
-                        <td>{o.address}</td>
-                    </tr>
+                    <TableRow key={i}>
+                        <TableCell>{o.address}</TableCell>
+                    </TableRow>
                 )
             })
         )
