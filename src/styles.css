@@ -4,13 +4,13 @@
 }
 
 .container-item-1{
-    width: 300px;
+    width: 800px;
     padding:10px;
 }
 
 .container-item-2{
     width: 600px;
-    padding:10px;
+    padding:50px;
 }
 
 .marker{
@@ -18,14 +18,10 @@
     height:25px;
 }
 
-.input-container{
-    width: 240px;
-    height:50px;
-}
 
 /*Search bar CSS*/
 .search-bar-container {
-    width: 96%;
+    width: 27%;
     max-width: 500px;
   }
 
@@ -41,6 +37,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     border-radius: 0 0 2px 2px;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    position: absolute;
   }
   
   .suggestion-item {

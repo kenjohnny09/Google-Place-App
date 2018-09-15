@@ -8,6 +8,9 @@ const HistoryTable = ({courses}) => {
         <TableHead>
             <TableRow>
                 <TableCell>Places Searched</TableCell>
+                <TableCell>Latitude</TableCell>
+                <TableCell>Longitude</TableCell>
+                <TableCell></TableCell>
             </TableRow>
         </TableHead>
         <TableBody>

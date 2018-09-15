@@ -18,7 +18,7 @@ class MapContainer extends Component {
   render() {
     return (
       // Important! Always set the container height explicitly
-      <div style={{ height: '600px', width: '800px' }}>
+      <div style={{ height: '600px', width: '800px'}}>
         <GoogleMapReact
           //bootstrapURLKeys={{ key: /* YOUR KEY HERE */ }}
           defaultCenter={this.props.center}
